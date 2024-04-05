@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    var products=["/assets/images/APJ-2008.webp","/assets/images/forest.png","/assets/images/mountain.png"];
+      function loadData()
+      {
+         for(var path of products)
+         {
+            var pic=document.createElement("img");
+            pic.src=path;
+            pic.width=100;
+            pic.height=100;
+            document.getElementById("container").appendChild(pic);
+
+              var op=document.createElement("option");
+              op.text=path;
+              document.querySelector("select").appendChild(op);
+
+              var ol=document.createElement("li");
+              ol.innerHTML=path;
+              document.querySelector("ol").appendChild(ol);
+
+            
+         }
+       
+
+      }
+    </script>
+</head>
+<body onload="loadData()">
+    <div id="container">
+
+    </div>
+    <select>
+
+    </select>
+    <ol>
+
+    </ol>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Dynamic</title>
+    <script>
+        function addImage()
+        {
+            var pic=document.createElement("img");
+            pic.src="/assets/images/APJ-Abdul-Kalam.jpg";
+            pic.width=100;
+            pic.height=100;
+            document.getElementById("container").appendChild(pic);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="addImage()">Add Image to page</button>
+    </div>
+    <div id="container">
+
+    </div>
+</body>
+</html>

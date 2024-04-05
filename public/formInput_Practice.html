@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function onSubmit()
+        {
+           document.getElementById("displayData").style.display="block";
+
+           document.getElementById("lblName").innerHTML=document.getElementById("getName").value;
+           document.getElementById("lblPrice").innerHTML=document.getElementById("getPrice").value;
+           document.getElementById("lblSelectCity").innerHTML=document.getElementById("getCity").value;
+
+           document.getElementById("registerButton").style.display="none";
+
+           Stock="";
+           stockCheckbox=document.getElementById("getSwitch");
+           if(stockCheckbox.checked)
+           {
+            Stock="Available";
+           }
+           else{
+            Stock="Out of Stock";
+           }
+           document.getElementById("lblStock").innerHTML=Stock;
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="mb-5" id="registerButton">
+        <button class="btn btn-primary" data-bs-target="#registerData" data-bs-toggle="modal">Register</button>
+    </div>
+    <div class="modal fade" id="registerData">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Register User</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt class="p-1">Name</dt>
+                        <dd><input type="text" class="form-control" id="getName"></dd>
+
+                        <dt class="p-1">Price</dt>
+                        <dd><input type="number" class="form-control" id="getPrice"></dd>
+
+                        <dt class="p-1">Select City</dt>
+                        <dd>
+                            <select name="" class="form-select" id="getCity">
+                                <option>Delhi</option>
+                                <option>India</option>
+                            </select>
+                        </dd>
+                        <dt class="p-1">Stock</dt>
+                        <dd class="form-switch">
+                            <input type="checkbox" id="getSwitch" class="form-check-input">  Available
+                        </dd>
+                    </dl>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal" onclick="onSubmit()">Submit</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="displayData" style="display: none;">
+        <h2>Product Details</h2>
+        <dl class="row">
+            <dt class="col-3">Name</dt>
+            <dd id="lblName" class="col-9"></dd>
+            <dt class="col-3">Price</dt>
+            <dd id="lblPrice" class="col-9"></dd>
+            <dt class="col-3">Select city</dt>
+            <dd id="lblSelectCity" class="col-9"></dd>
+            <dt class="col-3">stock</dt>
+            <dd id="lblStock" class="col-9"></dd>
+        </dl>
+
+    </div>
+    
+
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function chnageTheam()
+        {
+            var dark=document.getElementById("switch");
+            var container=document.getElementById("formContainer");
+            if(dark.checked)
+            {
+                formContainer.className="darkTheam";
+                document.querySelector("button").className="btn btn-dark w-100";
+            }
+            else{
+                formContainer.className="lightTheam";
+                document.querySelector("button").className="btn btn-primary w-100";
+            }
+        }
+    </script>
+    <style>
+        .form{
+            border: 2px black solid;
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .darkTheam{
+            background-color: black;
+            color: white;
+            border: 2px black solid;
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .lightTheam{
+            background-color: white;
+            color: black;
+            border: 2px black solid;
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="form" id="formContainer">
+       <div class="form-switch">
+       <input type="checkbox" onchange="chnageTheam()" class="form-check-input" id="switch">Dark-Theam
+       </div>
+          <dl>
+            <dt>Name</dt>
+            <dd><input type="text"></dd>
+            <dt>Password</dt>
+            <dd><input type="text"></dd>
+            <dt>Email</dt>
+            <dd><input type="text"></dd>
+          </dl>
+          <button class="btn w-100">LogIn</button>
+    </div>
+   
+</body>
+</html>

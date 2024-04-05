@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        #container{
+             display: flex;
+             justify-content: space-between;
+             background-color: red;
+             color: white;
+             font-size: 25px;
+        }
+        #time{
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function clock()
+        {
+            var now=new Date();
+            document.getElementById("time").innerHTML=now.toLocaleTimeString();
+        }
+        function  bodyLoad()
+        {
+            setInterval(clock,1000);    
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <div id="container">
+        <p>Amazone shopping</p>
+         <span id="time"></span>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+    let mfd=new Date("2024-08-12");
+    let monts=["jan","feb","march","april","may","june","july","aug","sep","octromber","nov","dec"];
+    let weekdays = ["Sunday", "Monday", "Tue", "Wednesday", "Thu"];
+    mfd.setMonth(0);
+    mfd.setDate(1);
+    document.write(`
+       mfd Date :${mfd.getDate()}
+          <br>
+         mfd Month :${monts[mfd.getMonth()]}
+          <br>
+          mfd weekday :${mfd.getDay()}    
+    `);
+</script> -->

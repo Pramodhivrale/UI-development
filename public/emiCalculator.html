@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Emi Calculator</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script>
+        function getEmi()
+        {
+            var amount=document.getElementById("amount").value;
+            var rate=document.getElementById("rate").value;
+            var years=document.getElementById("years").value;
+
+           // var emi=`${amount * rate *(1 + rate)*years*12/(1 + rate)*years - 1}`
+            var emi=`${amount * rate * years}`;
+            document.getElementById("monthalyEmi").innerHTML=emi;
+
+        }
+    </script>
+   
+</head>
+<body class="container-fluid mt-2 ms-3" >
+    <div>
+        <dl>
+            <dt>Amount :</dt>
+            <dd><input type="number" id="amount" ></dd>
+            <dt>Rate :</dt>
+            <dd><input type="number" id="rate"></dd>
+            <dt>Years :</dt>
+            <dd><input type="number" id="years"></dd>
+        </dl>
+    </div>
+    <button class="btn btn-success" onclick="getEmi()">Calculate</button>
+    <div>
+        <p>Monthaly emi :<p>
+        <p id="monthalyEmi"></p>
+    </div>
+</body>
+</html>

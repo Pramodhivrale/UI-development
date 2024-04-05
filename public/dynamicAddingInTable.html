@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+  
+    <title>Document</title>
+    <script>
+        var data=["electronics","mobiles","watches","fashion","Kurta In Fashion"]
+        function bodyLoad()
+        {
+          for(var path of data)
+          {
+            var tr=document.createElement("tr");
+            var td=document.createElement("td");
+
+            td.innerHTML=path;
+            tr.appendChild(td);
+            document.querySelector("tbody").appendChild(tr);
+          }
+
+        }
+
+    </script>
+</head>
+<body class="container-fluid" onload="bodyLoad()">
+    <div class="col" >
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Categories</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+
+        </table>
+    </div>
+    
+</body>
+</html>

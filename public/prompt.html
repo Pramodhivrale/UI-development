@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function createFolder(){
+         folder=prompt("Enter Folder Name :","New_Folder");
+         if(folder==null)
+         {
+            document.write("You click on cancled");
+         }
+         else if(folder=="")
+         {
+            document.write("Folder is empty put some value");
+         }
+         else{
+            document.querySelector("p").innerHTML +="Folder Created :"+folder +"<br>";
+         }
+        }
+
+        
+       
+    </script>
+</head>
+<body>
+ 
+  <button onclick="createFolder()">Create Folder</button>
+  <p></p>
+</body>
+</html>

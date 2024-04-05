@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        var data=[
+            {categories:"Electronics",products:["TV","Mobile"]},
+            {categories:"Footwear",products:["Shoes","Sandales"]}
+        ];
+        function bodyLoad()
+        {
+            for(var item of data)
+            {
+                var li=document.createElement("li");
+                li.innerHTML=item.categories;
+                for(var items of item.products)
+                {
+                    var ul=document.createElement("ul");
+                    var innerLi=document.createElement('li');
+                    innerLi.innerHTML=items;
+                    ul.appendChild(innerLi);
+                    li.appendChild(ul);
+                    document.querySelector("ol").appendChild(li);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <ol>
+
+    </ol>
+</body>
+</html>

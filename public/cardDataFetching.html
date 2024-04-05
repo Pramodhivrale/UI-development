@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+         function bodyLoad()
+        {
+            fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY")
+            .then(function(response){
+                return response.json();
+
+            })
+            .then(function(data){
+                for(var item of data.photos)
+                {
+                   var div=document.createElement("div");
+                   div.className="card m-2 p-2";
+                   div.style.width="200px";
+                   div.innerHTML=`
+                        <div class="card-header">
+                             <h2>${item.id}</h2>
+                        </div>
+                        <div class="card-body" >
+                            <img src=${item.img_src} height="150" width="150px">
+                        </div>
+                        <div class="card-footer">
+                            <dl>
+                                <dt>Camera Name</dt>
+                                <dd>${item.camera.full_name}</dd>
+                                <dt>Rover Name</dt>
+                                <dd>${item.rover.name}</dd>
+                                </dl>
+                         </div>   
+                         
+                   `;
+                   document.getElementById("dataContainer").appendChild(div);
+                }
+
+            });
+        }
+    </script>
+    </script>
+</head>
+<body class="container-fluid" onload="bodyLoad()">
+    <div class="d-flex flex-wrap" id="dataContainer" style="overflow: auto;">
+
+    </div>
+    
+</body>
+</html>

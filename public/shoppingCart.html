@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+       #button{
+            background-color: pink;
+            width: 2%;
+            border: 1px pink;
+        }
+        #fistTr{
+            
+        }
+        #data{
+            width: 15%;
+        
+        }
+        h1{
+            font-size: 17px;
+            
+        }
+        .modal{
+            
+        }
+        .modal-header{
+            background-color: aqua;
+        }
+        .modal-body{
+            background-color: aqua;
+        }
+        #closeButton{
+            size: 50px;
+        }
+
+
+    </style>
+</head>
+<body class="container-fluid">
+    <div id="button">
+      <span class="bi bi-cart" data-bs-target="#data" data-bs-toggle="modal"></span>
+    </div>
+    <div class="modal fade  mt-4" id="data">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Shopping List</h1>
+                    <button class="btn btn-close" data-bs-dismiss="modal" id="closeButton"></button>
+                </div>
+                <div class="modal-body">
+                    <p>item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2$</p>
+                    <br>
+                    <p>item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2$</p>
+                     <br>
+                    <p>item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2$</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

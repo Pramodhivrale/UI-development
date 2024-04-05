@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+
+    </style>
+    <script>
+        var City=["Mumbai","Delhi"];
+        function loadCities()
+        {
+            document.getElementById("lstCategories").innerHTML="";
+        for(var cities of City)
+            {
+                var list=document.createElement("option");
+                list.text=cities;
+                document.getElementById("lstCategories").appendChild(list); 
+            }
+        }
+        function bodyLoad()
+        {
+          loadCities();
+        }
+        function onAdd()
+        {
+            
+             var addingCity=document.getElementById("inputFormUser").value;
+             City.push(addingCity);
+             alert(`${addingCity} Added to list`);
+             loadCities();
+             document.getElementById("inputFormUser").value="";
+        }
+        function removeCity()
+        {
+            var selectCityFordelete=document.getElementById("lstCategories").value;
+            var indexOf=City.indexOf(selectCityFordelete);
+            alert(`${City.splice(indexOf,1)} city removed`);
+            loadCities();           
+        }
+    </script>
+</head>
+
+<body class="container-fluid" onload="bodyLoad()">
+    <div class="row">
+        <div class="col-3">
+            <h2>Enter a City Name :</h2>
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputFormUser">
+                <button class="btn btn-primary" onclick="onAdd()">Add</button>
+            </div>
+        </div>
+        <h2>Cities List</h2>
+         <div class="col-9 input-group">
+                <select class="form-select" id="lstCategories">
+
+                </select>
+                <button class="btn btn-danger" onclick="removeCity()">Remove City</button>
+         </div>
+        
+    </div>
+</body>
+
+</html>

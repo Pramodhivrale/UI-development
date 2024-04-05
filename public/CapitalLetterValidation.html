@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Document</title>
+       <script>
+        function verifyName()
+        {
+
+          var user= document.getElementById("textdata").value;
+          if(user.charCodeAt(0)>=65 && user.charCodeAt(0)<=90)
+          {
+            document.querySelector("p").innerHTML="";
+          }
+          else{
+            document.querySelector("p").innerHTML="Name must start with capital letter".fontcolor('red');
+          }
+
+        }
+       </script>
+</head>
+<body>
+    <div>
+       <fieldset>
+        <legend>Enter </legend>
+        <dl>
+            <dt>Name :</dt>
+            <Input type="text" id="textdata" onkeyup="verifyName()" size="40"></Input>
+            <p></p>
+        </dl>
+       
+       </fieldset>
+      
+    </div>
+</body>
+</html>

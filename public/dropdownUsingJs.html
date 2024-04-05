@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        {
+            var data=[
+            {categories:"Electronics",products:["TV","Mobile"]},
+            {categories:"Footwear",products:["Shoes","Sandales"]}
+         ]
+      function bodyLoad()
+      {
+        for(var items of data)
+        {
+            var optgroup=document.createElement("optgroup");
+            optgroup.label=items.categories;
+            for(var product of items.products){
+               var option= document.createElement("option");
+               option.innerHTML=product;
+
+               optgroup.appendChild(option);
+               document.getElementById("list").appendChild(optgroup);
+            }  
+        }
+      } 
+      
+        
+    }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <select id="list" class="form-select w-25">
+     
+    </select>
+</body>
+</html>

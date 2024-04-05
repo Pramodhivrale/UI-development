@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Document</title>
+    <script>
+        var products=[
+        {Name:"Boat Neckband", Price:2000, Photo:"/assets/images/neckband.png"},
+        {Name:"Laptop", Price:6000, Photo:"/assets/images/laptop.png"},
+        {Name:"Mobile", Price:50000, Photo:"/assets/images/Mobile.png"},
+        {Name:"Kalam", Price:50000, Photo:"/assets/images/forest.png"}
+       ];
+       function bodyLoad()
+       {
+        for (var data of products)
+        {
+            var card=document.createElement("div");
+            card.className="card w-25 m-2 p-2";
+            card.innerHTML=`
+           
+               <div class="card-header">
+                     <h2>${data.Name}</h2>
+                </div>
+
+                <div class="card-body">
+                    <img src=${data.Photo} height="200" class="card-img-top">
+                     <p>&#8377 ${data.Price}</p>
+
+                </div>
+
+                <div class="card-footer">
+                     <button class="btn btn-danger w-100">
+                        <span class="bi bi-cart4"></span>Add to cart
+                        </button>
+                     
+                </div>
+
+            ` ;
+            document.getElementById("catlog").appendChild(card);
+        }
+       }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyLoad()">
+    <div id="catlog" class="d-flex flex-wrap">
+
+    </div>
+    
+</body>
+</html>

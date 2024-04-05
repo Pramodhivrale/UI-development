@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        body {
+            background-color: maroon;
+        }
+    </style>
+    <script>
+        function orderClick()
+        {
+          var name= document.getElementById("txtName").value;
+          var mobile=document.getElementById("txtMobile").value;
+
+    
+
+          var burgerRadio=document.getElementById('txtBurger');
+          var rollerRadio=document.getElementById("txtRoller");
+          
+
+          var hotwings=document.getElementById('checkBoxWings');
+          var bornei=document.getElementById("checkBoxKrusher");
+
+          var mealName="";
+          var adonName="";
+          var totalAmount=0;
+          var mealCost=0;
+          var adonCost=0;
+
+          if(burgerRadio.checked)
+          {
+            mealName=burgerRadio.value;
+            mealCost=120;
+            
+          }
+          if(rollerRadio.checked)
+          {
+            mealName=rollerRadio.value;
+            mealCost=80;
+          }
+          if(hotwings.checked)
+          {
+            adonName += hotwings.value +"<br>";
+            adonCost=120;
+            mealCost =mealCost+ adonCost;
+          }
+          if(bornei.checked)
+          {
+            adonName += bornei.value +"<br>";
+            adonCost=60;
+            mealCost =mealCost+ adonCost;
+          }
+          document.getElementById("lblName").innerHTML=name;
+          document.getElementById("lblId").innerHTML=mobile;
+          document.getElementById("lblMeal").innerHTML=mealName;
+          document.getElementById("lblAdons").innerHTML=adonName;
+          document.getElementById("lblAmount").innerHTML=mealCost;
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <header>
+        <img src="/assets/images/Kfc.png" alt="" style="width: 100%;">
+    </header>
+    <section>
+        <div class="accordion" id="accData">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-toggle="collapse" data-bs-target="#customerData">
+                        <h3>Customer details</h3>
+                    </button>
+                </div>
+                <div class="accordion-body accordion-collapse collapse" data-bs-parent="#accData" id="customerData">
+                    <dl>
+                        <dt>Customer Name</dt>
+                        <dl><input type="text" class="form-control" id="txtName" ></dl>
+                        <dt>Customer Mobile</dt>
+                        <dd><input type="text" id="txtMobile" class="form-control" ></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-toggle="collapse" data-bs-target="#yourMeal">
+                        <h3>Select your meal</h3>
+                    </button>
+                </div>
+
+                <div class="accordion-body accordion-collapse collapse" id="yourMeal">
+                    <div class="row">
+                        <div class="col text-center">
+                            <img src="/assets/images/omg burger.png" alt=""> 
+                            <div>
+                                <input type="radio" name="meal" id="txtBurger" value="OMG Burger" class="form-check-input"> OMG Burger [&#8377; 120/-]
+                                    
+                            </div>
+
+                        </div>
+                        <div class="col text-center">
+                            <img src="/assets/images/omg roller.png" alt="">
+                            <div>
+                                <input type="radio" id="txtRoller" name="meal"class="form-check-input" value="OMG Roller"> OMG Roller [&#8377; 80/-]
+                                    
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <button class="btn btn-danger w-100" data-bs-toggle="collapse" data-bs-target="#addOn">
+                    <h3>Select add on</h3>
+                </button>
+            </div>
+            <div class="accordion-body bg-white" data-bs-parent="#accData" id="addOn">
+                <div class="row">
+                    <div class="col text-center">
+                        <img src="/assets/images/Hot wings.png" alt="" id="hotwings">
+                        <div>
+                            <input type="checkbox" id="checkBoxWings" value="Hotwings"> Hot Wings [&#8377; 120/-]
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <img src="/assets/images/Bronei blast.png" >
+                        <div>
+                            <input type="checkbox" value="Krusher" id="checkBoxKrusher"> Boreni Blast [&#8377; 60/-]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+       <div class="row">
+       <div class="col">
+        <button class="btn btn-danger w-100" onclick="orderClick()" data-bs-toggle="modal" data-bs-target="#billSummery">
+            <h3>Place Order </h3>
+        </button>
+        <div class="modal fade" id="billSummery">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Bill Summery</h2>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                       <dl class="row">
+                        <dt>Customer Name</dt>
+                        <dd class="col-9" id="lblName"></dd>
+                        <dt >Mobile</dt>
+                        <dd class="col-9" id="lblId"></dd>
+                        <dt>Meal name</dt>
+                        <dd class="col-9" id="lblMeal"></dd>
+                        <dt>Ad ons</dt>
+                        <dd class="col-9" id="lblAdons"></dd>
+                        <dt>Total amount</dt>
+                        <dd class="col-9" id="lblAmount"></dd>
+                       </dl>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-dismiss="modal"  >
+                            Ok
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+       </div>
+       </div>
+    </section>
+
+
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

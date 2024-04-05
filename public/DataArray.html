@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+   <script>
+     let product=
+    {
+       "Name":"",
+       "Price":0,
+       "Stock":false,
+       "Qty":0,
+       "Cities":[],
+       "Rating":{Rate:0,Count:1},
+       "Total":function (){
+        return this.Qty * this.Price;
+       },
+       "Print":function(){
+        document.write(`Name=${this.Name} <br> price=${this.Price} <br>
+      Stock=${this.Stock} <br>Quantity= ${this.Qty} <br>Shipped to= ${this.Cities} <br>
+      Rating=${this.Rating.Rate}<br> Rating from=${this.Rating.Count} People <br>`)
+       }
+    }
+   document.write(`<h2>Tv Details</h2>`);
+   product.Name="Samsung Tv";
+   product.Price=50000;
+   product.Stock=true;
+   product.Qty=200;
+   product.Cities=["Mumbai","Nanded"];
+   product.Rating.Rate=4.5;
+   product.Rating.Count=300;
+    product.Print();
+
+   </script>
+</head>
+<body>
+    
+</body>
+</html>
