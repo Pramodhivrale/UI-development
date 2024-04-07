@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Input</title>
+    <style>
+        label {
+            font-weight: bold;
+        }
+
+        .box {
+            width: 300px;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function RegisterClick() {
+            document.getElementById("lblName").innerText =
+                document.getElementById("txtName").value;
+            document.getElementById("lblPrice").innerText =
+                document.getElementById("txtPrice").value;
+            document.getElementById("lblCity").innerText =
+                document.getElementById("lstCities").value;
+            stock = document.getElementById("optStock");
+            status = "";
+            if (stock.checked) {
+                status = "Available";
+            } else {
+                status = "Out of Stock";
+            }
+            document.getElementById("lblStock").innerText = status;
+            document.getElementById("lblMfd").innerText =
+                document.getElementById("txtMfd").value;
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="box">
+        <form>
+            <h2 class="text-primary text-center">Register Product</h2>
+            <div class="form-group">
+                <label>Name</label>
+                <div>
+                    <input type="text" id="txtName" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <div>
+                    <input type="text" id="txtPrice" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Shipped To</label>
+                <div>
+                    <select id="lstCities" class="form-control">
+                        <option value="Delhi">Delhi</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Manufactured</label>
+                <div>
+                    <input type="date" id="txtMfd" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>In Stock</label>
+                <div>
+                    <input type="checkbox" id="optStock"> Yes
+                </div>
+            </div>
+            <div class="form-group">
+                <button onclick="RegisterClick()" type="button" datatarget="#summary" data-toggle="modal"
+                    class="btn btn-primary btnblock">Register</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="summary">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Product Details</h2>
+                    <button class="close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Name</td>
+                            <td id="lblName"></td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td id="lblPrice"></td>
+                        </tr>
+                        <tr>
+                            <td>Shipped To</td>
+                            <td id="lblCity"></td>
+                        </tr>
+                        <tr>
+                            <td>Stock</td>
+                            <td id="lblStock"></td>
+                        </tr>
+                        <tr>
+                            <td>Manufactured</td>
+                            <td id="lblMfd"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btnprimary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
