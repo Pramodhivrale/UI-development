@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pin verfication</title>
+   <script>
+     var data={
+        pin :'57575'
+    };
+    var attemptsLeft=3;
+
+    function onsubmitClick()
+    {
+        var pin=document.getElementById("txtInput").value;
+        if (pin === data.pin) {
+                document.getElementById("msg").innerHTML = "Verified Successfully";
+        }
+        else{
+                attemptsLeft--;
+                if (attemptsLeft > 0) {
+                    document.getElementById("msg").innerHTML = `Incorrect PIN. You have ${attemptsLeft} attempts left.`;
+                } else {
+                    document.getElementById("txtInput").disabled = true;
+                    document.querySelector('button').disabled = true;
+                    document.getElementById("msg").innerHTML = "You have exhausted all attempts.";
+                }
+            }   
+    }
+   </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Your pin [Maximum three attempts]</legend>
+        <input type="text" id="txtInput" size="4"> <button onclick="onsubmitClick()">Submit</button>
+    </fieldset>
+    <p id="msg"></p>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shopping switch</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script>
+        var category = ["Select a category", "fashion", "electronics"];
+        var fashion = ["Select a product", "dress", "jens"];
+        var electronics = ["Select a Product", "mobile", "nackeband"];
+        var products = [];
+
+
+        var data = [
+            { name: 'dress', price: 1300.0, photo: '/assets/images/forest.png' },
+            { name: 'jens', price: 200.0, photo: '/assets/images/mountain.png' },
+            { name: 'mobile', price: 5000.0, photo: '/assets/images/Mobile.png' },
+            { name: 'nackeband', price: 5350.0, photo: '/assets/images/neckband.png' }
+        ];
+        function bodyLoad() {
+            for (var item of category) {
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+
+                document.getElementById("lstCateory").appendChild(option);
+                
+
+            }
+            getcarditemsCount();
+        }
+        function loadProducts() {
+            document.getElementById("lstproducts").innerHTML = "";
+            for (var items of products) {
+                var productOptions = document.createElement("option");
+                productOptions.text = items;
+                productOptions.value = items;
+
+                document.getElementById("lstproducts").appendChild(productOptions);
+            }
+        }
+        function onChange() {
+            var selectedProduct = document.getElementById("lstCateory").value;
+
+            switch (selectedProduct) {
+                case "fashion":
+                    products = fashion;
+                    loadProducts();
+                    break;
+                case "electronics":
+                    products = electronics;
+                    loadProducts();
+                    break;
+            }
+        }
+        var serchedProduct = {};
+        function selectProduct() {
+            var product1 = document.getElementById("lstproducts").value;
+            serchedProduct = data.find(function (products) {
+                return products.name == product1;
+            });
+            document.getElementById("headerName").innerHTML = serchedProduct.name;
+            document.getElementById("paraName").innerHTML = serchedProduct.price;
+            document.getElementById("bodyImg").src = serchedProduct.photo;
+        }
+        var cardItems=[];
+
+        function getcarditemsCount()
+        {
+            document.getElementById("lblcart").innerHTML=cardItems.length;
+        }
+
+        function addtoCardClick()
+        {
+            cardItems.push(serchedProduct);
+            alert(`${serchedProduct} added to cart`);
+            getcarditemsCount();
+            
+        }
+        function loadcartItems()
+        {
+            document.querySelector("tbody").innerHTML="";
+            for(var data of cardItems)
+            {
+              var tr=  document.createElement("tr");
+              var tdName=document.createElement("td");
+              var tdPrice=document.createElement("td");
+              var tdPhoto=document.createElement("td");
+
+              tdName.innerHTML=data.name;
+              tdPrice.innerHTML=data.price;
+
+              var img=document.createElement("img");
+              img.src=data.photo;
+              img.width=50;
+              img.height=50;
+
+              tdPhoto.appendChild(img);
+
+              tr.appendChild(tdName);
+              tr.appendChild(tdPrice);
+              tr.appendChild(tdPhoto);
+
+              document.querySelector("tbody").appendChild(tr);
+            }
+        }
+        
+
+        
+
+
+    </script>
+</head>
+
+<body class="container-fluid" onload="bodyLoad()">
+    <header class="bg-danger w-100 text-center p-3 text-white">
+        <h2><span class="bi bi-cart3"></span>Amazone shopping</h2>
+    </header>
+    <div class="card w-25">
+        <div class="card-header ">
+            <label for="">select a category</label>
+            <select class="form-select" id="lstCateory" onchange="onChange()">
+
+            </select>
+            <label for="">select a product</label>
+            <select id="lstproducts" class="form-select" onchange="selectProduct()">
+
+            </select>
+
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3 id="headerName"></h3>
+                    <p id="paraName"></p>
+
+                </div>
+                <div class="card-body text-center">
+                    <img id="bodyImg" height="200px" width="200px">
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-danger w-100" onclick="addtoCardClick()">
+                <span class="bi bi-cart3"></span>Add To cart
+            </button>
+
+        </div>
+
+    </div>
+    <div>
+        <button class="btn btn-warning" onclick="loadcartItems()" data-bs-toggle="modal" data-bs-target="#modaldata">
+            <span class="bi  bi-cart3"></span>
+            [<label id="lblcart"></label>]
+            Your card items
+        </button>
+
+        <div class="modal fade" id="modaldata">
+            <div class="modal-dialog" id="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Card-item</h4>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Preview</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table> 
+                    </div>
+                    <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal">
+                       Ok
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
