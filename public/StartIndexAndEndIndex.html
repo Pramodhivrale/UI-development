@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>String</title>
+    <script>
+      function Verify() {
+        var txtEmail = document.getElementById("txtEmail").value;
+        if (txtEmail.endsWith("gmail.com")) {
+          document.write("Your Gmail Verified..");
+        } else {
+          document.write("Only Gmail allowed");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Your Email</legend>
+      <input
+        type="text"
+        id="txtEmail"
+        placeholder="Only
+                Gmail Allowed"
+      />
+      <button onclick="Verify()">Submit</button>
+    </fieldset>
+  </body>
+</html>

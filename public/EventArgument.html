@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Event Argumrnt</title>
+    <script>
+        function dboperation(buttonname)
+        {
+            switch(buttonname)
+            {
+                case 'insert':
+                    document.write(`record inserted`);
+                    break;
+                case 'update' :
+                    document.write(`record updated`)    
+                    break;
+                case 'delete':
+                    document.write(`record deleted`);  
+                    break;  
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button name="insert" onclick="dboperation(this.name)">Insert</button>
+    <button name="update" onclick="dboperation(this.name)">Update</button>
+    <button name="delete" onclick="dboperation(this.name)">Delete</button>
+    <select name="" onchange="dboperation(this.value)">
+        <option value="insert">Insert</option>
+        <option value="update">Update</option>
+        <option value="delete">Delete</option>
+    </select>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Polymorpisham</title>
+    <script>
+        class Employee{
+            FirstName;
+            LastName;
+            Desiganiation;
+            print()
+            {
+                document.write(`FirstName :${this.FirstName} <br> LastName : ${this.LastName} <br> Designation :${this.Desiganiation}`)
+            }
+        }
+        class Devloper extends Employee{
+            FirstName="pramod";
+            LastName="Hivrale";
+            Desiganiation="Devlopeer";
+            Role=" Devloper role :tester,debuge";
+            print()
+            {
+                super.print();
+                this.Role;
+            }
+        }
+        class Admin extends Devloper{
+            FirstName="Raj";
+            LastName="Kumar";
+            Desiganiation="admin";
+            Role="Admin role"
+            print()
+            {
+                super.print();
+                document.write(this.Role);
+            }
+
+
+        }
+        class Manager extends Admin{
+            FirstName="mahesh";
+            LastName="Tansekar";
+            Desiganiation="Manager";
+            Role="Manager";
+            print()
+            {
+                super.print();
+                document.write(this.Role);
+            }
+        }
+        let aobj=new Array(new Devloper(),new Admin(),new Manager());
+        let desigination=prompt("Enter designation");
+        for(var items of aobj)
+        {
+            if(items.Desiganiation==desigination)
+            {
+                items.print();
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
