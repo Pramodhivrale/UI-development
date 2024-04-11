@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+               $("#para").html($("#txtName").val());
+            })
+        })
+       
+    </script>
+</head>
+<body>
+    <div>
+        Your Name : <input type="text" id="txtName"> <button>Submit</button>
+    </div>
+    <p id="para"></p>
+</body>
+</html>

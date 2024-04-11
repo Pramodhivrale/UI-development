@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <select src="/node_modules/jquery/dist/jquery.js"></select>
+    <script>
+        $(function(){
+           var menu=[
+            {categories :'Electonics',product:['tv','mobile']},
+            {categories :'Fashion',product:['dress','chaddi']}
+           ];
+           $.each(menu,function(key,item){
+             $(`<li> ${item.categories} </li>`).appendTo("ol");
+             $.each(item.product,function(innerkey,pro)
+            {
+                  $(`<ul><li>${pro}</li></ul>`).appendTo("ol");
+            })
+           
+
+           })
+
+        })
+    </script>
+</head>
+<body>
+    <ol>
+
+    </ol>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Table</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+       $(function(){
+
+          var data=[
+            {Name :'Samsung tv',Price :2000.0},
+            {Name :'mobile',Price :5000.0}
+          ];
+          $.each(data,function(key,value){
+
+            $(`<tr><td> ${value.Name} </td><td> ${value.Price}</td></tr>`).appendTo("tbody");
+
+          })
+
+       })
+    </script>
+</head>
+<body>
+    <table width="200" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+</body>
+</html>

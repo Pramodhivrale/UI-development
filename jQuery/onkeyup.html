@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#txtName").keyup(function(){
+                $("#para").html($("#txtName").val());
+            })
+        })
+    </script>
+</head>
+<body>
+    <label >Enter Name :</label>
+    <input type="text" name="" id="txtName">
+    <div>
+        <p id="para"></p>
+    </div>
+</body>
+</html>
