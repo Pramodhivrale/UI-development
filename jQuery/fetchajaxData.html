@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+          $("button").click(function(){
+            $.ajax({
+                method :"GET",
+                url :"/jQuery/data/product.jso"
+           })
+           .then(function(data){
+                $.each(data,function(key,value){
+                    $(`<tr><td>${value.Name}</td><td>${value.Price}</td></tr>`).appendTo("tbody");
+
+                })
+           })
+          })
+        })
+        .ajaxStart(function(){
+            alert('Request for API sent to server');
+        })
+        .ajaxComplete(function(){
+            alert('Request processed on server');
+        })
+        .ajaxSuccess(function(){
+            alert('Data fetched form server');
+        })
+        .ajaxError(function(e,error){
+            alert(`${error.status} : ${error.statusText}`);
+        })
+    </script>
+</head>
+<body>
+    <button>Get data</button>
+    <table border="1" width="300">
+        <thead>
+            <tr>
+                <th>Name </th>
+                <th>Price </th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+</body>
+</html>
