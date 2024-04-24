@@ -8,7 +8,7 @@
           $("button").click(function(){
             $.ajax({
                 method :"GET",
-                url :"/jQuery/data/product.jso"
+                url :"/jQuery/data/product.json"
            })
            .then(function(data){
                 $.each(data,function(key,value){

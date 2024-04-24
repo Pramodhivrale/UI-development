@@ -1,0 +1,15 @@
+.container {
+  border: 2px solid red;
+  padding: 20px;
+}
+.container h3 {
+  color: white;
+  background-color: tomato;
+  text-align: center;
+}
+.container p {
+  background-color: blue;
+  text-align: justify;
+}
+
+/*# sourceMappingURL=effects.css.map */
