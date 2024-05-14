@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function bodyLoad()
+        {
+            fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                for(var propeties of data)
+                {
+
+                }
+            })
+        }
+    </script>
+</head>
+<body onload="bodyLoad()" class="container-fluid">
+    <div id="root" class="d-flex flex-wrap">
+
+    </div>
+    
+</body>
+</html>
